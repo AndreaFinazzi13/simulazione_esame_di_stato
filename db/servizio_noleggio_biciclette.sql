@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 03, 2024 alle 13:03
+-- Creato il: Mag 10, 2024 alle 08:52
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -103,7 +103,7 @@ CREATE TABLE `indirizzo` (
   `ID` int(11) NOT NULL,
   `via` varchar(64) NOT NULL,
   `cap` int(5) NOT NULL,
-  `citta` varchar(32) NOT NULL,
+  `paese` varchar(32) NOT NULL,
   `provincia` varchar(32) NOT NULL,
   `regione` varchar(32) NOT NULL,
   `stato` varchar(32) NOT NULL
@@ -113,7 +113,7 @@ CREATE TABLE `indirizzo` (
 -- Dump dei dati per la tabella `indirizzo`
 --
 
-INSERT INTO `indirizzo` (`ID`, `via`, `cap`, `citta`, `provincia`, `regione`, `stato`) VALUES
+INSERT INTO `indirizzo` (`ID`, `via`, `cap`, `paese`, `provincia`, `regione`, `stato`) VALUES
 (1, 'via leoncavallo 13', 20833, 'Giussano', 'Monza e Brianza', 'Lombardia', 'Italia'),
 (2, 'via cavour 3', 12653, 'Brescia', 'Brescia', 'Lombardia', 'Italia'),
 (3, 'via tempera 81', 12653, 'Brescia', 'Brescia', 'Lombardia', 'Italia'),

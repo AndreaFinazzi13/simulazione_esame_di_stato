@@ -1,1 +1,35 @@
-gfghs
+<html>
+    <head>
+        <!--in questa pagina visualizzare la mappa e fornire la possibilità di loggarsi-->
+        <!--titolo del documento-->
+        <title> Pagina iniziale </title>
+        
+        <!--inclusione del foglio di stile interno-->
+        <link href="style/style.css" rel="stylesheet">
+
+        <!--inclusione della libreria che permette di usare lo script-->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!--parte di scripting-->
+        <script>
+            //metodo che permette di reindirizzare l'esecuzione verso la pagina di login degli utenti
+            function goToLogin(){
+                //reindirizzamento alla pagina di login
+                window.location.href="login.php";
+            }
+            //metodo che permette di reindirizzare l'esecuzione verso la pagina di login degli utenti
+            function goToRegistra(){
+                //reindirizzamento alla pagina di registrazione
+                window.location.href="registrazione.php";
+            }
+        </script>
+    </head>
+    <body>
+        <!--contenitore degli elementi html-->
+        <div id="formVisualizza">
+            <!--bottone per registrarsi-->
+            <button class="b" type="button" onclick="goToRegistra()"> Registrati</button> <br>
+            Hai gia' un account?
+            <!--bottone per loggarsi-->
+            <button class="b" type="button" onclick="goToLogin()"> Login </button>
+    </body>
+</html>

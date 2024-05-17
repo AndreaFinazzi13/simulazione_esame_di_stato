@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 10, 2024 alle 08:52
+-- Creato il: Mag 17, 2024 alle 08:50
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -96,32 +96,6 @@ INSERT INTO `cliente` (`ID`, `email`, `password`, `nome`, `cognome`, `cartaCredi
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `indirizzo`
---
-
-CREATE TABLE `indirizzo` (
-  `ID` int(11) NOT NULL,
-  `via` varchar(64) NOT NULL,
-  `cap` int(5) NOT NULL,
-  `paese` varchar(32) NOT NULL,
-  `provincia` varchar(32) NOT NULL,
-  `regione` varchar(32) NOT NULL,
-  `stato` varchar(32) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dump dei dati per la tabella `indirizzo`
---
-
-INSERT INTO `indirizzo` (`ID`, `via`, `cap`, `paese`, `provincia`, `regione`, `stato`) VALUES
-(1, 'via leoncavallo 13', 20833, 'Giussano', 'Monza e Brianza', 'Lombardia', 'Italia'),
-(2, 'via cavour 3', 12653, 'Brescia', 'Brescia', 'Lombardia', 'Italia'),
-(3, 'via tempera 81', 12653, 'Brescia', 'Brescia', 'Lombardia', 'Italia'),
-(4, 'via testa 21', 21767, 'Senago', 'Monza e Brianza', 'Lombardia', 'Italia');
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `operazione`
 --
 
@@ -190,12 +164,6 @@ ALTER TABLE `cliente`
   ADD KEY `IDIndirizzo` (`IDIndirizzo`);
 
 --
--- Indici per le tabelle `indirizzo`
---
-ALTER TABLE `indirizzo`
-  ADD PRIMARY KEY (`ID`);
-
---
 -- Indici per le tabelle `operazione`
 --
 ALTER TABLE `operazione`
@@ -234,12 +202,6 @@ ALTER TABLE `cliente`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT per la tabella `indirizzo`
---
-ALTER TABLE `indirizzo`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT per la tabella `operazione`
 --
 ALTER TABLE `operazione`
@@ -256,24 +218,12 @@ ALTER TABLE `stazione`
 --
 
 --
--- Limiti per la tabella `cliente`
---
-ALTER TABLE `cliente`
-  ADD CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`IDIndirizzo`) REFERENCES `indirizzo` (`ID`);
-
---
 -- Limiti per la tabella `operazione`
 --
 ALTER TABLE `operazione`
   ADD CONSTRAINT `operazione_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`ID`),
   ADD CONSTRAINT `operazione_ibfk_2` FOREIGN KEY (`IDBici`) REFERENCES `bici` (`ID`),
   ADD CONSTRAINT `operazione_ibfk_3` FOREIGN KEY (`IDStazione`) REFERENCES `stazione` (`ID`);
-
---
--- Limiti per la tabella `stazione`
---
-ALTER TABLE `stazione`
-  ADD CONSTRAINT `stazione_ibfk_1` FOREIGN KEY (`IDIndirizzo`) REFERENCES `indirizzo` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

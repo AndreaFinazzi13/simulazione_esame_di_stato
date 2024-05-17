@@ -2,9 +2,6 @@
     <head>
         <!--titolo della pagina-->
         <title> Login utente </title>
-        
-        <!--inclusione del foglio di stile interno-->
-        <link href="../style/style.css" rel="stylesheet">
 
         <!--inclusione della libreria per crittograffazione password-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
@@ -19,7 +16,7 @@
             //torna a index
             function back(){
                 //reindirizzamento alla pagina home
-                window.location.href="index.php";
+                window.location.href="../index.php";
             }
         </script>
     </head>
@@ -35,7 +32,9 @@
             <input type="password" id="password" name="password" placeholder="password"> <br>
 
             <!--bottone per effettuare la login-->
-            <button class="b" type="button" onclick="login()"> Login </button>
+            <button class="b" type="button" onclick="login()"> Login </button> <br>
+            <!--bottone per tornare alla home-->
+            <button class="b" type="button" onclick="back()"> Home </button>
         </div>
     </body>
 </html>

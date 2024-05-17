@@ -14,12 +14,12 @@
             //metodo che permette di reindirizzare l'esecuzione verso la pagina di login degli utenti
             function goToLogin(){
                 //reindirizzamento alla pagina di login
-                window.location.href="login.php";
+                window.location.href="pages/login.php";
             }
             //metodo che permette di reindirizzare l'esecuzione verso la pagina di login degli utenti
             function goToRegistra(){
                 //reindirizzamento alla pagina di registrazione
-                window.location.href="registrazione.php";
+                window.location.href="pages/registrazione.php";
             }
         </script>
     </head>

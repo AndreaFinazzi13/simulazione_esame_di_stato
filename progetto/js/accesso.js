@@ -42,7 +42,7 @@ function login(){
             }
             else    
                 //visualizzazione errore (input errato)
-                alert("ERRORE! Credenziali errate");
+                alert(data["n"]);
         }, 'json');
     }
 }

@@ -13,7 +13,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }).addTo(mappa);    //aggiunta dell'immagine alla mappa
 
     //inserimento delle coordinate di Brescia nella mappa
-    L.marker([latitudine, longitudine]).addTo(mappa)
-        .bindPopup('<b>Brescia</b>')
-        .openPopup();
+    L.marker([latitudine, longitudine]).addTo(mappa);
+    
+    //richiesta get
+    $.get("./ajax/getCoordinate.php", {}, function(data) {
+        console.log(data);
+            
+        //controllo che l'operazione sia andata a buon fine
+        if(data["status"] == "ok"){
+            //split per ';' dei record, si otterranno stringe del tipo: "via, latitudine, longitudine, postiDisponibili"
+            let records = data["message"].split(";");
+
+            //scorrimento di tutti i record
+            for (let i = 0; i < records.length; i++) {
+                //split per ',' del singolo record
+                let dati = records[i].split(",");
+
+                //variabili ottenute
+                let via = dati[0];
+                let latitudine = dati[1];
+                let longitudine = dati[2];
+                let postiDisponibili = dati[3];
+
+                //creazione marker e inserimento nella mappa
+                var marker = L.marker([latitudine, longitudine]).addTo(mappa);
+                
+                //visualizzazione popup che contrassegna il pin
+                marker.bindPopup("<b> Via" + via + "</b><br>Posti disponibili: " + postiDisponibili);
+            }
+        }
+    }, 'json');
 });

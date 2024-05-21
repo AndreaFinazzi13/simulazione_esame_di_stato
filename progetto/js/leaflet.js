@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     //richiesta get
     $.get("./ajax/getCoordinate.php", {}, function(data) {
-        console.log(data);
             
         //controllo che l'operazione sia andata a buon fine
         if(data["status"] == "ok"){
@@ -28,6 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
             for (let i = 0; i < records.length; i++) {
                 //split per ',' del singolo record
                 let dati = records[i].split(",");
+                
+                //controllo che il numero di dati in ingressi sia giusto (evito di inserire record vuoti)
+                if (dati.length != 4) 
+                    //uscita dal ciclo
+                    continue;
 
                 //variabili ottenute
                 let via = dati[0];
@@ -39,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 var marker = L.marker([latitudine, longitudine]).addTo(mappa);
                 
                 //visualizzazione popup che contrassegna il pin
-                marker.bindPopup("<b> Via" + via + "</b><br>Posti disponibili: " + postiDisponibili);
+                marker.bindPopup("<b> Via" + via + "</b><br>Posti disponibili: " + postiDisponibili); 
             }
         }
     }, 'json');

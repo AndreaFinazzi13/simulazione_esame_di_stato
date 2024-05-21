@@ -98,3 +98,7 @@ function registrazione(){
         }, 'json');
     }
 }
+
+function logout(){
+    window.location.href="logout.php";
+}

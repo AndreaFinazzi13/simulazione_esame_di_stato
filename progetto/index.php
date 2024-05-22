@@ -39,7 +39,7 @@
         <div id="formVisualizza">
             <h1> Noleggio biciclette Brescia</h1> <br>
             <!--bottone per registrarsi-->
-            <button class="b" type="button" onclick="goToRegistra()"> Registrati</button> <br>
+            <button class="b" type="button" onclick="goToRegistra()"> Registrati </button> <br>
             Hai gia' un account?
             <!--bottone per loggarsi-->
             <button class="b" type="button" onclick="goToLogin()"> Login </button>

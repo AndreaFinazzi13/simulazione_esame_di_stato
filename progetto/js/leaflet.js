@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
         //controllo che l'operazione sia andata a buon fine
         if(data["status"] == "ok"){
-            //split per ';' dei record, si otterranno stringe del tipo: "via, latitudine, longitudine, postiDisponibili"
+            //split per ';' dei record, si otterranno stringe del tipo: "via, numeroSlot, latitudine, longitudine"
             let records = data["message"].split(";");
-
+            console.log(records)
             //scorrimento di tutti i record
             for (let i = 0; i < records.length; i++) {
                 //split per ',' del singolo record
@@ -35,15 +35,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 //variabili ottenute
                 let via = dati[0];
-                let latitudine = dati[1];
-                let longitudine = dati[2];
-                let postiDisponibili = dati[3];
+                let numeroSlot = dati[1];
+                let latitudine = dati[2];
+                let longitudine = dati[3];
 
                 //creazione marker e inserimento nella mappa
                 var marker = L.marker([latitudine, longitudine]).addTo(mappa);
                 
                 //visualizzazione popup che contrassegna il pin
-                marker.bindPopup("<b> Via" + via + "</b><br>Posti disponibili: " + postiDisponibili); 
+                marker.bindPopup("<b> Via" + via + "</b><br>Numero slot: " + numeroSlot); 
             }
         }
     }, 'json');

@@ -16,9 +16,8 @@
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    
     //query sql per ricercare l'utente inserito nel database
-    $sql= "SELECT via, latitudine, longitudine, numeroBiciDisponibili FROM stazione";
+    $sql= "SELECT via, numeroSlot, latitudine, longitudine FROM stazione";
 
     //preparazione della query per verificare eventuali errori
     $stmt = $conn->prepare($sql);
@@ -46,12 +45,12 @@
         while ($row = $result->fetch_assoc()) {
             //lettura dei dati di interesse (latitudine e longitudine)
             $via = $row['via'];
+            $nSlot = $row['numeroSlot'];
             $latitudine = $row['latitudine'];
             $longitudine = $row['longitudine'];
-            $numeroBiciDisponibili = $row['numeroBiciDisponibili'];
             
             //aggiunta del nuovo record alla stringa di ritorno
-            $res .= $via . "," . $latitudine . "," . $longitudine . "," . $numeroBiciDisponibili . ";";
+            $res .= $via . "," . $nSlot . "," . $latitudine . "," . $longitudine . ";";
         }
         
 

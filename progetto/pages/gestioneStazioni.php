@@ -58,7 +58,7 @@
             <h2>Lista stazioni</h2>
             <table id="tabellaStazioni"></table>
 
-            <!--bottone per tornare alla home-->
+            <!--bottone per inserire una stazione nuova-->
             <button class="b" type="button" onclick="inserisciStazione()"> Aggiungi nuova stazione </button><br>
 
             <!--bottone per tornare alla home-->

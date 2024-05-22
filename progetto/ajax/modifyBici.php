@@ -7,10 +7,10 @@
     //variabili per l'utilizzo del database (all'interno delle variabili ci sono già i dati salvati nelle medesime variabili all'interno di "credenziali")
     global $host, $user, $psw, $dbname;
 
-    //recupero degli attributi della stazione
-    $nome=$_GET["nome"];
-    $nSlot=$_GET["nSlot"];
-    $civico=$_GET["civico"];
+    //recupero degli attributi della bici
+    $seriale=$_GET["seriale"];
+    $rfd=$_GET["rfd"];
+    $gps=$_GET["gps"];
     $id=$_GET["id"];
 
     //connessione al database
@@ -21,8 +21,8 @@
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    //query sql per inserire una nuova stazione nel database
-    $sql= "UPDATE stazione SET nome = ?, numeroSlot = ?, civico = ? WHERE ID = ?";
+    //query sql per inserire una nuova bici nel database
+    $sql= "UPDATE bici SET numeroSeriale = ?, rfd = ?, gps = ? WHERE ID = ?";
         
     //preparazione della query per verificare eventuali errori
     $stmt = $conn->prepare($sql);
@@ -32,12 +32,12 @@
         throw new Exception("Errore nella preparazione della query: " . $conn->error);
     
     //inserimento dei parametri all'interno della query preparata
-    $stmt->bind_param("siii", $nome, $nSlot, $civico, $id);
+    $stmt->bind_param("sssi", $seriale, $rfd, $gps, $id);
     
     //esecuzione della query creata
     if ($stmt->execute()){
         //salvataggio della risposta in un nuovo array
-        $arr = array("status" => "ok", "message" => "Modifica della stazione effettuata");
+        $arr = array("status" => "ok", "message" => "Modifica della bici effettuata");
         //conversione dell'array in formato json e visualizzazione
         echo json_encode($arr);
     }

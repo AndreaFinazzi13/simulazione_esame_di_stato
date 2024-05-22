@@ -44,7 +44,7 @@ function chiudiModifiche(){
 
 //apertura della sezione nella quale inserire i nuovi valori della stazione
 function modifica(id, nome){
-    //nome azzerato
+    //titolo azzerato
     $("#titolo").html("");
     //salvataggio dell'id e del nome della stazione selezionata
     idStazione = id;
@@ -77,7 +77,7 @@ function modificaStazione(){
 
             //controllo se l'operazione è riuscita
             if(data["status"] == "ok"){
-                //visualizzazione mappa modificata
+                //visualizzazione tabella modificata
                 //riempimento della tabella con le stazioni presenti nel database
                 //richiesta get
                 $.get("../ajax/getStazioni.php", function(data){
@@ -108,7 +108,7 @@ function elimina(id){
 
         //controllo se l'operazione è riuscita
         if(data["status"] == "ok"){
-            //visualizzazione mappa modificata
+            //visualizzazione tabella modificata
             //riempimento della tabella con le stazioni presenti nel database
             //richiesta get
             $.get("../ajax/getStazioni.php", function(data){

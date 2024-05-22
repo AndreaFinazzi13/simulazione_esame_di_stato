@@ -27,7 +27,7 @@
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    //query sql per inserire un nuovo cliente nel database
+    //query sql per inserire una nuova stazione nel database
     $sql= "INSERT INTO stazione (nome, numeroSlot, civico, via, paese, provincia, regione, stato, latitudine, longitudine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     //preparazione della query per verificare eventuali errori
     $stmt = $conn->prepare($sql);
@@ -37,7 +37,6 @@
         throw new Exception("Errore nella preparazione della query: " . $conn->error);
     
     //inserimento dei parametri all'interno della query preparata
-    //ss --> 2 stringhe
     $stmt->bind_param("siisssssdd", $nome, $nSlot, $civico, $via, $paese, $provincia, $regione, $stato, $lat, $lon);
     
     //esecuzione della query creata

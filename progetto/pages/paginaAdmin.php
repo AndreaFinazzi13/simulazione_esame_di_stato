@@ -1,3 +1,11 @@
+<!--controllo che la sessione sia partita-->
+<?php 
+    if (!isset($_SESSION)) {
+        //inizializzazione sessione
+        session_start();
+    }
+?>
+
 <html>
     <head>
         <!--titolo della pagina-->
@@ -8,6 +16,19 @@
 
         <!--inclusione del file javascript-->
         <script src="../js/accesso.js"></script>
+
+        <!--gestione delle attività dell'admin-->
+        <script>
+            //reindirizzamento alla pagina di gestione delle stazioni (visualizza, crea, elimina, modifica)
+            function gestioneStazioni(){
+                window.location.href="gestioneStazioni.php";
+            }
+
+            //reindirizzamento alla pagina di gestione delle bici (visualizza, crea, elimina, modifica)
+            function gestioneBici(){
+                window.location.href="gestioneBici.php";
+            }
+        </script>
     </head>
     <body>
         <!--contenitore degli elementi html-->

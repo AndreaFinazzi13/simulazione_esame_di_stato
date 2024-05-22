@@ -7,19 +7,17 @@
     //variabili per l'utilizzo del database (all'interno delle variabili ci sono già i dati salvati nelle medesime variabili all'interno di "credenziali")
     global $host, $user, $psw, $dbname;
 
-    //recupero degli attributi nel nuovo utente
-    $mail=$_GET["mail"];
-    $password=$_GET["password"];
+    //recupero degli attributi della nuova stazione
     $nome=$_GET["nome"];
-    $cognome=$_GET["cognome"];
-    $cartaCredito=$_GET["cartaCredito"];
-    //indirizzo
+    $nSlot=$_GET["nSlot"];
     $civico=$_GET["civico"];
     $via=$_GET["via"];
     $paese=$_GET["paese"];
     $provincia=$_GET["provincia"];
     $regione=$_GET["regione"];
     $stato=$_GET["stato"];
+    $lat=$_GET["lat"];
+    $lon=$_GET["lon"];
 
     //connessione al database
     $conn = new mysqli($host, $user, $psw, $dbname);
@@ -30,7 +28,7 @@
     }
 
     //query sql per inserire un nuovo cliente nel database
-    $sql= "INSERT INTO cliente (email, password, nome, cognome, cartaCredito, civico, via, paese, provincia, regione, stato) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql= "INSERT INTO stazione (nome, numeroSlot, civico, via, paese, provincia, regione, stato, latitudine, longitudine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     //preparazione della query per verificare eventuali errori
     $stmt = $conn->prepare($sql);
     //controllo se la preparazione della query presenta errori
@@ -40,18 +38,18 @@
     
     //inserimento dei parametri all'interno della query preparata
     //ss --> 2 stringhe
-    $stmt->bind_param("sssssisssss", $mail, $password, $nome, $cognome, $cartaCredito, $civico, $via, $paese, $provincia, $regione, $stato);
+    $stmt->bind_param("siisssssdd", $nome, $nSlot, $civico, $via, $paese, $provincia, $regione, $stato, $lat, $lon);
     
     //esecuzione della query creata
     if ($stmt->execute()){
         //salvataggio della risposta in un nuovo array
-        $arr = array("status" => "ok", "message" => "Registrazione utente effettuata");
+        $arr = array("status" => "ok", "message" => "Inserimento stazione effettuato");
         //conversione dell'array in formato json e visualizzazione
         echo json_encode($arr);
     }
     else{
         //salvataggio della risposta in un nuovo array
-        $arr = array("status" => "no", "message" => "Username già utilizzato");
+        $arr = array("status" => "no", "message" => "ERRORE! Operazione non riuscita");
         //conversione dell'array in formato json e return a js
         echo json_encode($arr);
     }

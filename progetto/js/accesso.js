@@ -1,6 +1,3 @@
-//modificare la login() e ajaxRegistrannnnn
-
-
 //metodo che permette di loggarsi al sito controllando le credenziali
 function login(){
     //ottenimento username

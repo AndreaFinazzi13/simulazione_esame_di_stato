@@ -1,4 +1,9 @@
 <?php
+    //controllo che la sessione sia partita
+    if (!isset($_SESSION)) 
+        //inizializzazione sessione
+        session_start();
+        
     //settaggio della risposta in json 
     header('Content-Type: application/json');
     //inclusione delle credenziali
@@ -30,8 +35,9 @@
         //comunicazione di eventuali errori
         throw new Exception("Errore nella preparazione della query: " . $conn->error);
     
-    //inserimento dei parametri all'interno della query preparata
+    //inserimento del parametrl all'interno della query preparata
     $stmt->bind_param("i", $id);
+
     //esecuzione della query creata
     if ($stmt->execute()){
         //salvataggio della risposta in un nuovo array

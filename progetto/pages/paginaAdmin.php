@@ -32,7 +32,7 @@
     </head>
     <body>
         <!--contenitore degli elementi html-->
-        <div id="formLogin">
+        <div id="form">
             <!--titolo interno alla pagina-->
             <h1> Pagina admin </h1>
 

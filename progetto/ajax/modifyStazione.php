@@ -1,4 +1,9 @@
 <?php
+    //controllo che la sessione sia partita
+    if (!isset($_SESSION)) 
+        //inizializzazione sessione
+        session_start();
+
     //settaggio della risposta in json 
     header('Content-Type: application/json');
     //inclusione delle credenziali

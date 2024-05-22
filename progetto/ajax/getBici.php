@@ -1,13 +1,17 @@
 <?php
-//settaggio della risposta in json 
-header('Content-Type: application/json');
-//inclusione delle credenziali
-require_once("../database/credenziali.php");
+    //controllo che la sessione sia partita
+    if (!isset($_SESSION)) 
+        //inizializzazione sessione
+        session_start();
 
-//variabili per l'utilizzo del database (all'interno delle variabili ci sono già i dati salvati nelle medesime variabili all'interno di "credenziali")
-global $host, $user, $psw, $dbname;
+    //settaggio della risposta in json 
+    header('Content-Type: application/json');
+    //inclusione delle credenziali
+    require_once("../database/credenziali.php");
 
-try {
+    //variabili per l'utilizzo del database (all'interno delle variabili ci sono già i dati salvati nelle medesime variabili all'interno di "credenziali")
+    global $host, $user, $psw, $dbname;
+
     //connessione al database
     $conn = new mysqli($host, $user, $psw, $dbname);
 
@@ -58,11 +62,3 @@ try {
     $arr = array("status" => "ok", "message" => $table);
     //conversione dell'array in formato json e return a js
     echo json_encode($arr);
-
-    //gestione eccezioni
-} catch (Exception $e) {
-    //login non andato a buon fine
-    $arr = array("status" => "no", "message" => $e->getMessage());
-    //return a js
-    echo json_encode($arr);
-}

@@ -39,10 +39,10 @@
         <div id="formVisualizza">
             <h1> Noleggio biciclette Brescia</h1> <br>
             <!--bottone per registrarsi-->
-            <button class="b" type="button" onclick="goToRegistra()"> Registrati </button> <br>
-            Hai gia' un account?
+            <button class="b" type="button" onclick="goToRegistra()" style="margin-left:3%"> Registrati </button> <br>
+            <p style="margin-left:3%">Hai gia' un account?</p>
             <!--bottone per loggarsi-->
-            <button class="b" type="button" onclick="goToLogin()"> Login </button>
+            <button class="b" type="button" onclick="goToLogin()" style="margin-left:4%"> Login </button>
             <!--spazio di inserimento mappa-->
             <div id="contenitoreMappa">
                 <!--spazio in cui inserire la mappa-->

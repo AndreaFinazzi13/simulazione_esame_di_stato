@@ -12,6 +12,9 @@
         <!--inclusione del file javascript-->
         <script src="../js/accesso.js"></script>
 
+        <!--foglio di stile interno-->
+        <link rel="stylesheet" href="../style/style.css">
+
         <script>
             //torna a index
             function back(){

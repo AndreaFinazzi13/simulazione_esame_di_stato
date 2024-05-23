@@ -12,6 +12,9 @@
         <!--inclusione del file javascript-->
         <script src="../js/accesso.js"></script>
 
+        <!--foglio di stile interno-->
+        <link rel="stylesheet" href="../style/style.css">
+
         <script>
             //torna a index
             function back(){
@@ -22,7 +25,7 @@
     </head>
     <body>
         <!--contenitore degli elementi html-->
-        <div id="formLogin">
+        <div id="formRegistra">
             <!--titolo interno alla pagina-->
             <h1> Pagina di registrazione </h1>
 

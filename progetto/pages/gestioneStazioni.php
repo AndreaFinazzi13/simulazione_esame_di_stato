@@ -17,6 +17,9 @@
         <!--inclusione del file javascript-->
         <script src="../js/operazioniStazione.js"></script>
 
+        <!--foglio di stile interno-->
+        <link rel="stylesheet" href="../style/style.css">
+
         <script>
             //controllo se il documento è stato caricato
             $("document").ready(function(){
@@ -50,7 +53,7 @@
     </head>
     <body>
         <!--contenitore degli elementi html-->
-        <div id="formLogin">
+        <div id="formStazioni">
             <!--titolo interno alla pagina-->
             <h1> Pagina di gestione delle stazioni </h1>
 

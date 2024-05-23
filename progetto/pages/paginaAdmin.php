@@ -17,6 +17,9 @@
         <!--inclusione del file javascript-->
         <script src="../js/accesso.js"></script>
 
+        <!--foglio di stile interno-->
+        <link rel="stylesheet" href="../style/style.css">
+
         <!--gestione delle attività dell'admin-->
         <script>
             //reindirizzamento alla pagina di gestione delle stazioni (visualizza, crea, elimina, modifica)

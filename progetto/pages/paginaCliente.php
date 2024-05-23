@@ -19,6 +19,9 @@
 
         <!--inclusione del file javascript-->
         <script src="../js/operazioniCliente.js"></script>
+
+        <!--foglio di stile interno-->
+        <link rel="stylesheet" href="../style/style.css">
     </head>
     <body>
         <!--contenitore degli elementi html-->

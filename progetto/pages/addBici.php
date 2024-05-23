@@ -17,6 +17,9 @@
         <!--inclusione del file javascript-->
         <script src="../js/operazioniBici.js"></script>
 
+        <!--foglio di stile interno-->
+        <link rel="stylesheet" href="../style/style.css">
+
         <script>
             //torna a index
             function back(){

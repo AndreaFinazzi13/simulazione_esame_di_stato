@@ -35,7 +35,7 @@
             <!--sezione di modifica-->
             <div class="divModificaCliente">
                 <!--titolo della sezione-->
-                <h1 id="titolo"></h1>
+                <h1> Modifica del profilo</h1>
                 
                 <!--spazio di inserimento della mail-->
                 Mail: <input type="text" id="mail" name="mail"> <br>
@@ -52,6 +52,13 @@
                 <!--bottone per effettuare chiudere la sezione di modifica-->
                 <button class="b" type="button" onclick="chiudiModifiche()"> Chiudi </button> <br>
             </div>
+
+            <!--visualizzazione delle tratte percorse-->
+            <!--titolo della sezione-->
+            <h1> Tratte percorse </h1>
+            <!--tabella di visualizzazione-->
+            <table id="tabellaTrattePercorse"></table>
+                
 
             <!--bottone per effettuare la logout-->
             <button class="b" type="button" onclick="logout()"> Logout </button>

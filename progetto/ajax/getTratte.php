@@ -23,8 +23,8 @@
         throw new Exception("Connection failed: " . $conn->connect_error);
     }
 
-    //query sql per ricercare il cliente all'interno del database
-    $sql = "SELECT * FROM cliente WHERE email = ?";
+    //query sql per ricercare le tratte percorse al cliente loggato
+    $sql = "SELECT * FROM operazione WHERE email = ?";
 
     //preparazione della query per verificare eventuali errori
     $stmt = $conn->prepare($sql);

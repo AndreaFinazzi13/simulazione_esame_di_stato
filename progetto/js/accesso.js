@@ -39,7 +39,7 @@ function login(){
             }
             else    
                 //visualizzazione errore (input errato)
-                alert(data["n"]);
+                alert(data["message"]);
         }, 'json');
     }
 }

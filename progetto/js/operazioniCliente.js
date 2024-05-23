@@ -18,6 +18,20 @@ $(document).ready(async function () {
             //visualizzazione errore 
             alert(data["message"]);
     }, 'json');
+
+    //riempimento della tabella con le informazioni riguardanti le tratte percorse dal cliente loggato
+    //richiesta get
+    $.get("../ajax/getTratte.php", function(data){
+        
+        //controllo che l'operazione sia andata a buon fine
+        if(data["status"] == "ok"){
+            //inserimento nell'apposita tabella delle informazioni delle tratte percorse dal cliente
+            $("#tabellaTrattePercorse").html(data.message);
+        }
+        else    
+            //visualizzazione errore 
+            alert(data["message"]);
+    }, 'json');
 });
 
 //chiusura della sezione di modifica delle informazioni del cliente

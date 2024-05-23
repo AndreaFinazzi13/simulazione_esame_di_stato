@@ -47,12 +47,11 @@
 
     //costruzione della tabella in cui si inseriranno tutte le stazioni presenti nel database
     $table = "<tr><th>Email</th><th>Nome</th><th>Cognome</th><th>Numero civico</th><th>Via</th><th>Paese</th><th>Provincia</th><th>Regione</th><th>Stato</th></tr>";
-
+    
     //controllo se c'è una riga di risultato
     if ($result->num_rows == 1) {
         //salvataggio del risultato della query
         $row = $result->fetch_assoc();
-
         //completamento tabella con tutte le informazioni
         $table .= "<tr><td>$row[email]</td><td>$row[nome]</td><td>$row[cognome]</td><td>$row[civico]</td><td>$row[via]</td><td>$row[paese]</td><td>$row[provincia]</td><td>$row[regione]</td><td>$row[stato]</td><td><button onclick='modifica($row[ID])'>Modifica</button></td></tr>";
 

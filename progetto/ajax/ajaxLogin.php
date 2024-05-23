@@ -1,9 +1,4 @@
 <?php
-    //controllo che la sessione sia partita
-    if (!isset($_SESSION)) 
-        //inizializzazione sessione
-        session_start();
-        
     //settaggio della risposta in json 
     header('Content-Type: application/json');
     //inclusione delle credenziali
@@ -58,8 +53,9 @@
 
             //avvio sessione
             session_start();
-            //salvataggio dell'username nella variabile di sessione
+            //salvataggio della mail e dell'id nelle variabili di sessione
             $_SESSION["mail"] = $mail;
+            $_SESSION["id"] = $row["ID"];
 
             //salvataggio della risposta in un nuovo array
             $arr = array("status" => "ok", "message" => "Login effettuato");
@@ -106,8 +102,9 @@
 
             //avvio sessione
             session_start();
-            //salvataggio dell'username nella variabile di sessione
+            //salvataggio della mail e dell'id nelle variabili di sessione
             $_SESSION["mail"] = $mail;
+            $_SESSION["id"] = $row["ID"];
 
             //salvataggio della risposta in un nuovo array
             $arr = array("status" => "ok", "message" => "Login effettuato");
